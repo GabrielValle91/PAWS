@@ -1,0 +1,2 @@
+class FoundPetPicture < ApplicationRecord
+end

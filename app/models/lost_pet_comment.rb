@@ -1,0 +1,2 @@
+class LostPetComment < ApplicationRecord
+end

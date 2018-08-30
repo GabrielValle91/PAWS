@@ -1,0 +1,2 @@
+class LostPetPicture < ApplicationRecord
+end

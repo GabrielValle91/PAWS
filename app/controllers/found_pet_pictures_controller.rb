@@ -1,0 +1,2 @@
+class FoundPetPicturesController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class LostPetCommentsController < ApplicationController
+end

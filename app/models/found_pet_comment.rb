@@ -1,0 +1,2 @@
+class FoundPetComment < ApplicationRecord
+end
