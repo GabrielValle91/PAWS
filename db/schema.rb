@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_190038) do
   end
 
   create_table "found_pets", force: :cascade do |t|
-    t.string "type"
+    t.string "animal_type"
     t.string "city"
     t.string "state"
     t.string "area"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_190038) do
   end
 
   create_table "lost_pets", force: :cascade do |t|
-    t.string "type"
+    t.string "animal_type"
     t.string "name"
     t.string "gender"
     t.string "breed"

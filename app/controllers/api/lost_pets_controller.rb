@@ -1,4 +1,4 @@
-class API::LostPetsController < ApplicationController
+class Api::LostPetsController < ApplicationController
     before_action :set_lost_pet, only: [:show, :update, :destroy]
     
     def index
