@@ -8,7 +8,7 @@ class CreateLostPets < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :state
       t.string :personality
-      t.boolean :chipped
+      t.boolean :chipped, default: false
       t.string :status
       t.belongs_to :user
       t.timestamps
