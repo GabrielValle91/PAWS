@@ -4,7 +4,7 @@ class LostPet < ApplicationRecord
     has_many :lost_pet_pictures
 
     def pet_images=(image_array)
-      image_array.each |image| do
+      image_array.each do |image|
         if image
           pet_image = LostPetPicture.new
           pet_image.lost_pet = self

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FoundPets from '../components/foundPets/FoundPets';
+import FoundPetInput from '../components/foundPets/FoundPetInput';
 
 class FoundPetContainer extends Component {
   constructor(props){
@@ -20,6 +21,7 @@ class FoundPetContainer extends Component {
   render(){
     return (
       <div>
+        <FoundPetInput />
         <h1>Found Pets</h1>
         <FoundPets foundPets={this.state.foundPets}/>
       </div>
