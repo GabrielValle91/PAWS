@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import FoundPets from '../components/foundPets/FoundPets';
 import FoundPetInput from '../components/foundPets/FoundPetInput';
+import { connect } from 'react-redux';
+import { getFoundPets } from '../actions/FoundPets';
 
 class FoundPetContainer extends Component {
-  constructor(props){
-    super(props)
+  // constructor(props){
+  //   super(props)
 
-    this.state = {
-      foundPets: [],
-      lostPets: []
-    }
-  }
+  //   this.state = {
+  //     foundPets: [],
+  //     lostPets: []
+  //   }
+  // }
   
   componentDidMount(){
-    fetch('http://localhost:3001/api/found_pets')
-    .then(response => response.json())
-    .then(foundPets => this.setState({foundPets}))
+    this.props.getFoundPets();
   }
 
   render(){
@@ -23,10 +23,22 @@ class FoundPetContainer extends Component {
       <div>
         <FoundPetInput />
         <h1>Found Pets</h1>
-        <FoundPets foundPets={this.state.foundPets}/>
+        <FoundPets foundPets={this.props.foundPets}/>
       </div>
     )
   }
 }
 
-export default FoundPetContainer;
+const mapStateToProps = state => {
+  return ({
+    foundPets: state.foundPets
+  })
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    getFoundPets: () => {dispatch(getFoundPets())},
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FoundPetContainer);

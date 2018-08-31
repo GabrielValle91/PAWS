@@ -1,81 +1,76 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { updateFoundPetFormData } from '../../actions/FoundPetForm';
+import { createFoundPet } from '../../actions/FoundPets';
 
 class FoundPetInput extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      animal_type: '',
-      city: '',
-      state: '',
-      area: '',
-      gender: '',
-      firstImage: '',
-      secondImage: '',
-      thirdImage: ''
-    }
-  }
 
-  fileChangeHandler = e => {
-    this.setState({
-      [e.target.name]: e.target.files[0]
+  fileChangeHandler = event => {
+    const {name} = event.target;
+    const currentFoundPetFormData = Object.assign({}, this.props.foundPetFormData, {
+      [name]: event.target.files[0]
     })
+    this.props.updateFoundPetFormData(currentFoundPetFormData);
   }
 
-  handleSubmit = e => {
-    e.preventDefault();
-
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.createFoundPet(this.props.foundPetFormData)
   }
 
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+  handleChange = event => {
+    const {name, value} = event.target;
+    const currentFoundPetFormData = Object.assign({}, this.props.foundPetFormData, {
+      [name]: value
+    })
+    this.props.updateFoundPetFormData(currentFoundPetFormData);
   }
 
   render(){
     const states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME",
     "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI",
     "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
-    const stateList = states.map(state => {
+    const stateList = states.map((state,idx) => {
       return (
-        <option>{state}</option>
+        <option key={idx}>{state}</option>
       )
     })
+    const {animal_type, gender, city, state, area} = this.props.foundPetFormData;
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <span className="FoundPetInputField">
-            Animal Type: <select name="animal_type" value={this.state.animal_type} onChange={this.handleChange}>
+          <div className="FoundPetInputField">
+            Animal Type: <select name="animal_type" value={animal_type} onChange={this.handleChange}>
               <option></option>
-              <option>Dog</option>
+              <option value="Dog">Dog</option>
               <option>Cat</option>
               <option>Bird</option>
               <option>Other</option>
             </select>
-          </span>
-          <span className="FoundPetInputField">
-            Gender: <select name="gender" value={this.state.gender} onChange={this.handleChange}>
+          </div>
+          <div className="FoundPetInputField">
+            Gender: <select name="gender" value={gender} onChange={this.handleChange}>
               <option></option>
               <option>male</option>
               <option>female</option>
             </select>
-          </span>
-          <span className="FoundPetInputField">
-            City: <input type="text" name="city" value={this.state.city} onChange={this.handleChange} />
-          </span>
-          <span className="FoundPetInputField">
-            State: <select name="state" value={this.state.state} onChange={this.handleChange}>
+          </div>
+          <div className="FoundPetInputField">
+            City: <input type="text" name="city" value={city} onChange={this.handleChange} />
+          </div>
+          <div className="FoundPetInputField">
+            State: <select name="state" value={state} onChange={this.handleChange}>
               <option></option>
               {stateList}
             </select>
-          </span>
-          <span className="FoundPetInputField">
-            Area of town: <input type="text" name="area" value={this.state.area} onChange={this.handleChange} />
-          </span>
+          </div>
+          <div className="FoundPetInputField">
+            Area of town: <input type="text" value={area} name="area" onChange={this.handleChange} />
+          </div>
           <br />
-          <input type="file" name="firstImage" onChange={this.FileChangeHandler} />
-          <input type="file" name="secondImage" onChange={this.FileChangeHandler} />
-          <input type="file" name="thirdImage" onChange={this.FileChangeHandler} />
+          <input type="file" name="firstImage" value={this.props.firstImage} onChange={this.fileChangeHandler} />
+          <input type="file" name="secondImage" value={this.props.secondImage} onChange={this.fileChangeHandler} />
+          <input type="file" name="thirdImage" value={this.props.thirdImage} onChange={this.fileChangeHandler} />
           <input type="submit" />
         </form>
       </div>
@@ -83,4 +78,19 @@ class FoundPetInput extends Component {
   }
 }
 
-export default FoundPetInput;
+const mapStateToProps = state => {
+  return {
+    foundPetFormData: state.foundPetFormData
+  }
+}
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     updateFoundPetFormData: () => {dispatch(updateFoundPetFormData())},
+//   }
+// }
+
+export default connect(mapStateToProps, {
+  updateFoundPetFormData,
+  createFoundPet
+})(FoundPetInput);
