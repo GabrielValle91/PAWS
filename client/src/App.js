@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import FoundPet from './containers/FoundPet';
+import FoundPetContainer from './containers/FoundPetContainer';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <FoundPet />
+        <FoundPetContainer />
       </div>
     );
   }
