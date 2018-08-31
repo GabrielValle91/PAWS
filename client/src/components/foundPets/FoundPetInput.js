@@ -7,6 +7,7 @@ class FoundPetInput extends Component {
 
   fileChangeHandler = event => {
     const {name} = event.target;
+    console.log(event.target.files[0])
     const currentFoundPetFormData = Object.assign({}, this.props.foundPetFormData, {
       [name]: event.target.files[0]
     })
@@ -68,9 +69,7 @@ class FoundPetInput extends Component {
             Area of town: <input type="text" value={area} name="area" onChange={this.handleChange} />
           </div>
           <br />
-          <input type="file" name="firstImage" value={this.props.firstImage} onChange={this.fileChangeHandler} />
-          <input type="file" name="secondImage" value={this.props.secondImage} onChange={this.fileChangeHandler} />
-          <input type="file" name="thirdImage" value={this.props.thirdImage} onChange={this.fileChangeHandler} />
+          <input type="file" name="pet_image" value={this.props.pet_image} onChange={this.fileChangeHandler} />
           <input type="submit" />
         </form>
       </div>

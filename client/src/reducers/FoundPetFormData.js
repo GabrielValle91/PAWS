@@ -4,9 +4,7 @@ const initialState = {
   state: '',
   area: '',
   gender: '',
-  firstImage: '',
-  secondImage: '',
-  thirdImage: '',
+  pet_image: null,
   user_id: 1
 }
 const FoundPetFormData = (state = initialState, action) => {

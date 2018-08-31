@@ -35,6 +35,7 @@ export const createFoundPet = foundPet => {
     })
       .then(response => response.json())
       .then(foundPet => {
+        console.log(foundPet)
         dispatch(addFoundPet(foundPet))
         dispatch(resetFoundPetForm())
       })

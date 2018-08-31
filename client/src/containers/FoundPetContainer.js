@@ -5,15 +5,6 @@ import { connect } from 'react-redux';
 import { getFoundPets } from '../actions/FoundPets';
 
 class FoundPetContainer extends Component {
-  // constructor(props){
-  //   super(props)
-
-  //   this.state = {
-  //     foundPets: [],
-  //     lostPets: []
-  //   }
-  // }
-  
   componentDidMount(){
     this.props.getFoundPets();
   }
@@ -21,7 +12,6 @@ class FoundPetContainer extends Component {
   render(){
     return (
       <div>
-        <FoundPetInput />
         <h1>Found Pets</h1>
         <FoundPets foundPets={this.props.foundPets}/>
       </div>

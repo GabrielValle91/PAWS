@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import FoundPetContainer from './containers/FoundPetContainer';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import FoundPetInput from './components/foundPets/FoundPetInput';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <FoundPetContainer />
-      </div>
+      <Router>
+        <React.Fragment>
+          <Route exact path="/foundpets" component={FoundPetContainer} />
+          <Route exact path="/foundpetsnew" component={FoundPetInput} />
+        </React.Fragment>
+      </Router>
     );
   }
 }
