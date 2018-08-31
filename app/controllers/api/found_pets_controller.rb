@@ -41,6 +41,6 @@ class Api::FoundPetsController < ApplicationController
     end
 
     def found_pet_params
-        params.require(:found_pet).permit(:type, :city, :state, :area, :gender, :user_id)
+        params.require(:found_pet).permit(:type, :city, :state, :area, :gender, :user_id, pet_images: [])
     end
 end

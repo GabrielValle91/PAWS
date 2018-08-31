@@ -26,8 +26,14 @@ ActiveRecord::Schema.define(version: 2018_08_30_190038) do
   end
 
   create_table "found_pet_pictures", force: :cascade do |t|
+    t.string "pet_image_file_name"
+    t.string "pet_image_content_type"
+    t.integer "pet_image_file_size"
+    t.datetime "pet_image_updated_at"
+    t.bigint "found_pet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["found_pet_id"], name: "index_found_pet_pictures_on_found_pet_id"
   end
 
   create_table "found_pets", force: :cascade do |t|
@@ -53,8 +59,14 @@ ActiveRecord::Schema.define(version: 2018_08_30_190038) do
   end
 
   create_table "lost_pet_pictures", force: :cascade do |t|
+    t.string "pet_image_file_name"
+    t.string "pet_image_content_type"
+    t.integer "pet_image_file_size"
+    t.datetime "pet_image_updated_at"
+    t.bigint "lost_pet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["lost_pet_id"], name: "index_lost_pet_pictures_on_lost_pet_id"
   end
 
   create_table "lost_pets", force: :cascade do |t|
