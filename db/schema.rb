@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_30_190038) do
+ActiveRecord::Schema.define(version: 2018_08_30_173257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,23 +25,17 @@ ActiveRecord::Schema.define(version: 2018_08_30_190038) do
     t.index ["user_id"], name: "index_found_pet_comments_on_user_id"
   end
 
-  create_table "found_pet_pictures", force: :cascade do |t|
-    t.string "pet_image_file_name"
-    t.string "pet_image_content_type"
-    t.integer "pet_image_file_size"
-    t.datetime "pet_image_updated_at"
-    t.bigint "found_pet_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["found_pet_id"], name: "index_found_pet_pictures_on_found_pet_id"
-  end
-
   create_table "found_pets", force: :cascade do |t|
     t.string "animal_type"
     t.string "city"
     t.string "state"
     t.string "area"
     t.string "gender"
+    t.string "pet_image_file_name"
+    t.string "pet_image_content_type"
+    t.integer "pet_image_file_size"
+    t.datetime "pet_image_updated_at"
+    t.string "status"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,17 +52,6 @@ ActiveRecord::Schema.define(version: 2018_08_30_190038) do
     t.index ["user_id"], name: "index_lost_pet_comments_on_user_id"
   end
 
-  create_table "lost_pet_pictures", force: :cascade do |t|
-    t.string "pet_image_file_name"
-    t.string "pet_image_content_type"
-    t.integer "pet_image_file_size"
-    t.datetime "pet_image_updated_at"
-    t.bigint "lost_pet_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["lost_pet_id"], name: "index_lost_pet_pictures_on_lost_pet_id"
-  end
-
   create_table "lost_pets", force: :cascade do |t|
     t.string "animal_type"
     t.string "name"
@@ -79,6 +62,10 @@ ActiveRecord::Schema.define(version: 2018_08_30_190038) do
     t.string "personality"
     t.boolean "chipped", default: false
     t.string "status"
+    t.string "pet_image_file_name"
+    t.string "pet_image_content_type"
+    t.integer "pet_image_file_size"
+    t.datetime "pet_image_updated_at"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

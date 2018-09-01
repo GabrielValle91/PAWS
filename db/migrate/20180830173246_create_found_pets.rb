@@ -6,6 +6,8 @@ class CreateFoundPets < ActiveRecord::Migration[5.2]
       t.string :state
       t.string :area
       t.string :gender
+      t.attachment :pet_image
+      t.string :status
       t.belongs_to :user
       t.timestamps
     end
