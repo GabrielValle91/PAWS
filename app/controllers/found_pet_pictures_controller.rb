@@ -1,2 +1,0 @@
-class FoundPetPicturesController < ApplicationController
-end
