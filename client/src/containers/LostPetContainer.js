@@ -12,7 +12,7 @@ class LostPetContainer extends Component {
     return(
       <div>
         <h1>Lost Pets</h1>
-        <LostPets lostPets={this.props.foundPets} />
+        <LostPets lostPets={this.props.lostPets} />
       </div>
     )
   }
