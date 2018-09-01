@@ -10,7 +10,7 @@ class CreateLostPets < ActiveRecord::Migration[5.2]
       t.string :personality
       t.boolean :chipped, default: false
       t.string :status
-      t.attachment :pet_image
+      # t.attachment :pet_image
       t.belongs_to :user
       t.timestamps
     end

@@ -1,5 +1,7 @@
+require 'pry'
 class Api::FoundPetsController < ApplicationController
     before_action :set_found_pet, only: [:show, :update, :destroy]
+    # before_action :set_s3_direct_post, only: [:create, :update]
     
     def index
         render json: FoundPet.all
@@ -11,6 +13,8 @@ class Api::FoundPetsController < ApplicationController
 
     def create
         found_pet = FoundPet.new(found_pet_params)
+        # found_pet.pet_image.attach(params[:found_pet][:pet_image])
+        binding.pry
         if found_pet.save
             render json: found_pet
         else
@@ -43,4 +47,8 @@ class Api::FoundPetsController < ApplicationController
     def found_pet_params
         params.require(:found_pet).permit(:animal_type, :city, :state, :area, :gender, :user_id, :pet_image)
     end
+
+    # def set_s3_direct_post
+    #   @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+    # end
 end
