@@ -14,7 +14,7 @@ class Api::FoundPetsController < ApplicationController
     def create
         found_pet = FoundPet.new(found_pet_params)
         # found_pet.pet_image.attach(params[:found_pet][:pet_image])
-        binding.pry
+        # binding.pry
         if found_pet.save
             render json: found_pet
         else

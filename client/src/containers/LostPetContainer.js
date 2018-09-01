@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { getLostPets } from '../actions/LostPets';
 
 class LostPetContainer extends Component {
+  componentDidMount(){
+    this.props.getLostPets();
+  }
 
   render(){
     return(

@@ -5,7 +5,7 @@ const FoundPetReducer = (state = [], action) => {
     case 'CREATE_FOUND_PET':
       return state.concat(action.foundPet);
     default:
-      return state
+      return state;
   }
 }
 
