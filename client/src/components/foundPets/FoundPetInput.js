@@ -70,6 +70,8 @@ class FoundPetInput extends Component {
           </div>
           <br />
           <input type="file" name="pet_image" value={this.props.pet_image} onChange={this.fileChangeHandler} />
+          <br />
+          <br />
           <input type="submit" />
         </form>
       </div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import FoundPets from '../components/foundPets/FoundPets';
-import FoundPetInput from '../components/foundPets/FoundPetInput';
 import { connect } from 'react-redux';
 import { getFoundPets } from '../actions/FoundPets';
 
