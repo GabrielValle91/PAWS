@@ -36,7 +36,7 @@ class FoundPetInput extends Component {
         <option key={idx}>{state}</option>
       )
     })
-    const {animal_type, gender, city, state, area} = this.props.foundPetFormData;
+    const {animal_type, gender, city, state, area, image_url} = this.props.foundPetFormData;
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -68,8 +68,11 @@ class FoundPetInput extends Component {
           <div className="FoundPetInputField">
             Area of town: <input type="text" value={area} name="area" onChange={this.handleChange} />
           </div>
+          <div className="FoundPetInputField">
+            Image Url: <input type="text" value={image_url} name="image_url" onChange={this.handleChange} />
+          </div>
           <br />
-          <input type="file" name="pet_image" value={this.props.pet_image} onChange={this.fileChangeHandler} />
+          {/* <input type="file" name="pet_image" value={this.props.pet_image} onChange={this.fileChangeHandler} /> */}
           <br />
           <br />
           <input type="submit" />

@@ -7,7 +7,8 @@ const initialState = {
   state: '',
   personality: '',
   chipped: false,
-  pet_image: null,
+  image_url: '',
+  // pet_image: null,
   user_id: 1
 }
 const LostPetFormData = (state = initialState, action ) => {

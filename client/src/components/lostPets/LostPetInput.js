@@ -35,7 +35,7 @@ class LostPetInput extends Component{
         <option key={idx}>{state}</option>
       )
     })
-    const {animal_type, name, gender, breed, city, state, personality, chipped} = this.props.lostPetFormData;
+    const {animal_type, name, gender, breed, city, state, personality, chipped, image_url} = this.props.lostPetFormData;
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -76,7 +76,10 @@ class LostPetInput extends Component{
           <div className="FoundPetInputField">
             Chipped: <input type="checkbox" name="chipped" value={chipped} onChange={this.handleChange} />
           </div>
-          <input type="file" name="pet_image" value={this.props.pet_image} onChange={this.fileChangeHandler} />
+          <div className="FoundPetInputField">
+            Image Url: <input type="text" value={image_url} name="image_url" onChange={this.handleChange} />
+          </div>
+          {/* <input type="file" name="pet_image" value={this.props.pet_image} onChange={this.fileChangeHandler} /> */}
           <br />
           <br />
           <input type="submit" />
