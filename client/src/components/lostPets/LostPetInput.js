@@ -54,8 +54,8 @@ class LostPetInput extends Component{
           <div className="FoundPetInputField">
             Gender: <select name="gender" value={gender} onChange={this.handleChange}>
               <option></option>
-              <option>male</option>
-              <option>female</option>
+              <option>Male</option>
+              <option>Female</option>
             </select>
           </div>
           <div className="FoundPetInputField">
