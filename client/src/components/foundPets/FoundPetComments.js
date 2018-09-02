@@ -5,7 +5,7 @@ class FoundPetComments extends Component {
     const {comments} = this.props;
     const commentList = comments.map(comment => {
       return(
-        <p>{comment.comment}</p>
+        <p>{comment.user.username} says: {comment.comment}</p>
       )
     })
     return(
