@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
+import FoundPetComments from './FoundPetComments'
 import './FoundPets.css'
 
-// const FoundPet = ({ foundPet }) => (
-//   <div className="FoundPetCard">
-//     <p className="FoundPetCardContent">{foundPet.gender} - {foundPet.animal_type}</p>
-//     <img src={foundPet.image_url} alt={"pet pic"} className="FoundPetImage"/>
-//     <p className="FoundPetCardContent">Location: {foundPet.city}, {foundPet.state}</p>
-//   </div>
-// )
 class FoundPet extends Component {
+  constructor () {
+    super();
+    this.state = {
+      isActive: false
+    }
+  }
+  handleClick = () => {
+    this.setState({
+      isActive: !this.state.isActive
+    })
+  }
+
   render (){
     const {foundPet} = this.props;
     return(
-      <div className="FoundPetCard">
-        <p className="FoundPetCardContent">{foundPet.gender} - {foundPet.animal_type}</p>
-        <img src={foundPet.image_url} alt={"pet pic"} className="FoundPetImage"/>
-        <p className="FoundPetCardContent">Location: {foundPet.city}, {foundPet.state}</p>
+      <div className={this.state.isActive ? "FoundPetDetailCard" : "FoundPetCard"} onClick={this.handleClick}>
+        <p className={this.state.isActive ? "FoundPetDetailContent" : "FoundPetCardContent"}>{foundPet.gender} - {foundPet.animal_type}</p>
+        <img src={foundPet.image_url} alt={"pet pic"} className={this.state.isActive ? "FoundPetDetailImage" : "FoundPetImage"}/>
+        <p className={this.state.isActive ? "FoundPetDetailContent" : "FoundPetCardContent"}>Location: {foundPet.city}, {foundPet.state}</p>
+        {this.state.isActive && <p className="FoundPetDetailContent">{foundPet.area}</p>}
+        {this.state.isActive && <FoundPetComments />}
       </div>
     )
   }
