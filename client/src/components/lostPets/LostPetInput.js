@@ -23,7 +23,7 @@ class LostPetInput extends Component{
     const currentLostPetFormData = Object.assign({}, this.props.lostPetFormData, {
       [name]: value
     })
-    this.props.updateLostPetFormdata(currentLostPetFormData);
+    this.props.updateLostPetFormData(currentLostPetFormData);
   }
 
   render(){
@@ -35,7 +35,7 @@ class LostPetInput extends Component{
         <option key={idx}>{state}</option>
       )
     })
-    const {animal_type, gender, breed, city, state, personality, chipped} = this.props.lostPetFormData;
+    const {animal_type, name, gender, breed, city, state, personality, chipped} = this.props.lostPetFormData;
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -47,6 +47,9 @@ class LostPetInput extends Component{
               <option>Bird</option>
               <option>Other</option>
             </select>
+          </div>
+          <div className="FoundPetInputField">
+            Name: <input type="text" name="name" value={name} onChange={this.handleChange} />
           </div>
           <div className="FoundPetInputField">
             Gender: <select name="gender" value={gender} onChange={this.handleChange}>

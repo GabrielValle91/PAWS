@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import LostPet from './LostPet'
+import LostPet from './LostPet';
 
 class LostPets extends Component {
   render(){
     const {lostPets} = this.props;
-    const lostPetList = lostPets.map(lostPet => {
+    const lostPetsList = lostPets.map(lostPet => {
       return (
         <LostPet
           key={lostPet.id}
@@ -12,9 +12,10 @@ class LostPets extends Component {
         />
       )
     })
+
     return(
       <div>
-        {lostPetList}
+        {lostPetsList}
       </div>
     )
   }

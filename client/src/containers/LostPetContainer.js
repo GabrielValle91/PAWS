@@ -9,10 +9,10 @@ class LostPetContainer extends Component {
   }
 
   render(){
-    return(
+    return (
       <div>
         <h1>Lost Pets</h1>
-        <LostPets lostPets={this.props.lostPets} />
+        <LostPets lostPets={this.props.lostPets}/>
       </div>
     )
   }
@@ -24,9 +24,9 @@ const mapStateToProps = state => {
   })
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getLostPets: () => {dispatch(getLostPets())}
+const mapDispatchToProps = (dispatch) => {
+  return{
+    getLostPets: () => {dispatch(getLostPets())},
   }
 }
 
