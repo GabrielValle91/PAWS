@@ -70,6 +70,10 @@ class LostPetInput extends Component{
           <div className="FoundPetInputField">
             Personality: <input type="text" name="personality" value={personality} onChange={this.handleChange} />
           </div>
+          <div className="FoundPetInputField">
+            Chipped: <input type="checkbox" name="chipped" value={chipped} onChange={this.handleChange} />
+          </div>
+          <input type="file" name="pet_image" value={this.props.pet_image} onChange={this.fileChangeHandler} />
           <br />
           <br />
           <input type="submit" />
@@ -79,4 +83,13 @@ class LostPetInput extends Component{
   }
 }
 
-export default LostPetInput;
+const mapStateToProps = state => {
+  return {
+    lostPetFormData: state.lostPetFormData
+  }
+}
+
+export default connect(mapStateToProps, {
+  updateLostPetFormData,
+  createLostPet
+})(LostPetInput);

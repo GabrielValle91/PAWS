@@ -1,4 +1,4 @@
-export const updateLostPetFormData = lostPetFormdata => {
+export const updateLostPetFormData = lostPetFormData => {
   return  {
     type: 'ADD_LOST_PET_DATA',
     lostPetFormData
