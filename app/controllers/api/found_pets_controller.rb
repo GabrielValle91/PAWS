@@ -45,7 +45,7 @@ class Api::FoundPetsController < ApplicationController
     end
 
     def found_pet_params
-        params.require(:found_pet).permit(:animal_type, :city, :state, :area, :gender, :user_id, :pet_image)
+        params.require(:found_pet).permit(:animal_type, :city, :state, :area, :gender, :user_id, :pet_image, :image_url)
     end
 
     # def set_s3_direct_post

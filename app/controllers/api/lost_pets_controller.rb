@@ -41,6 +41,6 @@ class Api::LostPetsController < ApplicationController
     end
 
     def lost_pet_params
-        params.require(:lost_pet).permit(:animal_type, :name, :gender, :breed, :city, :state, :personality, :chipped, :status, :user_id, :pet_image)
+        params.require(:lost_pet).permit(:animal_type, :name, :gender, :breed, :city, :state, :personality, :chipped, :status, :user_id, :pet_image, :image_url)
     end
 end
