@@ -8,3 +8,5 @@ const LostPetCommentsReducer = (state = [], action) => {
       return state;
   }
 }
+
+export default LostPetCommentsReducer;
