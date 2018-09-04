@@ -3,7 +3,7 @@ const LostPetCommentsReducer = (state = [], action) => {
     case 'GET_LOST_PET_COMMENTS':
       return action.lostPetComments;
     case 'CREATE_LOST_PET_COMMENT':
-      return state.concat(action.lostPetcomment);
+      return state.concat(action.lostPetComment);
     default:
       return state;
   }

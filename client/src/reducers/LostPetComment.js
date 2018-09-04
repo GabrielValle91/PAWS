@@ -7,7 +7,7 @@ const initialState = {
 const LostPetComment = (state = initialState, action) => {
   switch(action.type){
     case 'UPDATE_LOST_PET_COMMENT':
-      return action.lostPetcomment;
+      return action.lostPetComment;
     case 'RESET_LOST_PET_COMMENT':
       return initialState;
     default:

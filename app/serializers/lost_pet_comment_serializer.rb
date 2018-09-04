@@ -1,4 +1,4 @@
-class LostPetCommentSerializer < ActiveModel::Serialzer
+class LostPetCommentSerializer < ActiveModel::Serializer
     attributes :id, :comment, :user
     belongs_to :lost_pet
     belongs_to :user

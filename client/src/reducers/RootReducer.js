@@ -5,6 +5,8 @@ import LostPetReducer from './LostPetReducer';
 import LostPetFormData from './LostPetFormData';
 import FoundPetComment from './FoundPetComment';
 import FoundPetCommentsReducer from './FoundPetComments';
+import LostPetComment from './LostPetComment';
+import LostPetCommentsReducer from './LostPetComments';
 
 const RootReducer = combineReducers({
   foundPets: FoundPetReducer,

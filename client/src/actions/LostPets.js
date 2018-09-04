@@ -45,11 +45,11 @@ export const getLostPets = () => {
   return dispatch => {
     return fetch('http://localhost:3001/api/lost_pets')
     .then(response => response.json())
-    .then(lostPets => dispatch(setLostPets(lostPets)))
+    .then(lostPets => {dispatch(setLostPets(lostPets))})
   }
 }
 
-export const getFoundPetComments = (petId) => {
+export const getLostPetComments = (petId) => {
   return dispatch => {
     return fetch("http://localhost:3001/api/lost_pets/" + petId)
     .then(response => response.json())
