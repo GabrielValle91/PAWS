@@ -21,3 +21,20 @@ export const userLogin = (userDetails) => {
     })
   }
 }
+
+export const userSignup = (userDetails) => {
+  return dispatch => {
+    return fetch('http://localhost:3001/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({userDetails})
+    })
+    .then(response => response.json())
+    .then(userDetails => {
+      console.log(userDetails)
+      dispatch(setUserDetails(userDetails))
+    })
+  }
+}

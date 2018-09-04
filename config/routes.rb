@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :lost_pet_comments, only: [:create, :delete]
   end
   post '/login', to: 'sessions#create'
+  post '/signup', to: 'sessions#signup'
 end
