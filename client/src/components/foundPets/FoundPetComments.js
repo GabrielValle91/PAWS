@@ -1,22 +1,40 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { updateFoundPetComment } from '../../actions/FoundPets';
+import { createFoundPetComment } from '../../actions/FoundPets';
+import { getFoundPetComments } from '../../actions/FoundPets';
 
 class FoundPetComments extends Component {
   handleSubmit = event => {
     event.preventDefault();
+    this.props.createFoundPetComment(this.props.foundPetComment)
+  }
+
+  handleChange = event => {
+    const {name, value} = event.target;
+    const currentFoundPetComment = Object.assign({},this.props.foundPetComment, {
+      [name]: value,
+      found_pet_id: this.props.petId
+    })
+    this.props.updateFoundPetComment(currentFoundPetComment);
+  }
+
+  componentDidMount(){
+    this.props.getFoundPetComments(this.props.petId);
   }
 
   render(){
-    const {comments} = this.props;
-    const commentList = comments.map(comment => {
+    const comment = this.props.foundPetComment.comment;
+    const commentList = this.props.foundPetComments.map(comment => {
       return(
-        <p>{comment.user.username} says: {comment.comment}</p>
+        <p key={comment.id}>{comment.user.username} says: {comment.comment}</p>
       )
     })
     return(
       <div>
         {commentList}
         <form onSubmit={this.handleSubmit}>
-          <input type="text" />
+          <input type="text" name="comment" value={comment} onChange={this.handleChange}/>
           <button type="submit">Add Comment</button>
         </form>
       </div>
@@ -24,4 +42,15 @@ class FoundPetComments extends Component {
   }
 }
 
-export default FoundPetComments;
+const mapStateToProps = state => {
+  return {
+    foundPetComment: state.foundPetComment,
+    foundPetComments: state.foundPetComments
+  }
+}
+
+export default connect(mapStateToProps, {
+  updateFoundPetComment,
+  createFoundPetComment,
+  getFoundPetComments
+})(FoundPetComments);

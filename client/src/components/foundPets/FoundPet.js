@@ -27,7 +27,7 @@ class FoundPet extends Component {
           {this.state.isActive && <p className="FoundPetDetailContent">{foundPet.area}</p>}
         </div>
         {this.state.isActive && <div className="FoundPetCommentCard">
-          <FoundPetComments comments={foundPet.found_pet_comments}/>
+          <FoundPetComments petId={foundPet.id}/>
         </div>}
       </div>
     )
