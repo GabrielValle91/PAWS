@@ -12,8 +12,9 @@ const RootReducer = combineReducers({
   foundPetComment: FoundPetComment,
   foundPetComments: FoundPetCommentsReducer,
   lostPets: LostPetReducer,
-  lostPetFormData: LostPetFormData
-
+  lostPetFormData: LostPetFormData,
+  lostPetComment: LostPetComment,
+  lostPetComments: LostPetCommentsReducer,
 })
 
 export default RootReducer;
