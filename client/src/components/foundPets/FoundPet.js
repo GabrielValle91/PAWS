@@ -9,6 +9,7 @@ class FoundPet extends Component {
       isActive: false
     }
   }
+  
   handleClick = () => {
     this.setState({
       isActive: !this.state.isActive

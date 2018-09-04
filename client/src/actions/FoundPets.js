@@ -60,7 +60,6 @@ export const getFoundPetComments = (petId) => {
 }
 
 export const createFoundPet = foundPet => {
-  console.log(foundPet)
   return dispatch => {
     return fetch('http://localhost:3001/api/found_pets', {
       method: 'POST',
@@ -71,7 +70,6 @@ export const createFoundPet = foundPet => {
     })
       .then(response => response.json())
       .then(foundPet => {
-        console.log(foundPet)
         dispatch(addFoundPet(foundPet))
         dispatch(resetFoundPetForm())
       })
