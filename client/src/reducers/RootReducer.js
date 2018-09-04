@@ -7,6 +7,7 @@ import FoundPetComment from './FoundPetComment';
 import FoundPetCommentsReducer from './FoundPetComments';
 import LostPetComment from './LostPetComment';
 import LostPetCommentsReducer from './LostPetComments';
+import UserAuthentication from './UserAuthentication';
 
 const RootReducer = combineReducers({
   foundPets: FoundPetReducer,
@@ -17,6 +18,7 @@ const RootReducer = combineReducers({
   lostPetFormData: LostPetFormData,
   lostPetComment: LostPetComment,
   lostPetComments: LostPetCommentsReducer,
+  userAuthentication: UserAuthentication
 })
 
 export default RootReducer;

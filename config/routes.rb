@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     resources :found_pets, except: [:new, :edit]
     resources :found_pet_comments, only: [:create, :delete]
     resources :lost_pet_comments, only: [:create, :delete]
-    resources :users
   end
+  post '/login', to: 'sessions#create'
 end

@@ -6,6 +6,7 @@ import FoundPetInput from './components/foundPets/FoundPetInput';
 import LostPetContainer from './containers/LostPetContainer';
 import LostPetInput from './components/lostPets/LostPetInput';
 import NavBar from './containers/NavBar';
+import LogIn from './containers/LogIn';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route exact path="/foundpetsnew" component={FoundPetInput} />
           <Route exact path="/lostpets" component={LostPetContainer} />
           <Route exact path="/lostpetsnew" component={LostPetInput} />
+          <Route exact path="/login" component={LogIn} />
         </React.Fragment>
       </Router>
     );
