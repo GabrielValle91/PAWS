@@ -1,7 +1,7 @@
 const initialState = {
   comment: '',
   lost_pet_id: 0,
-  user_id: 1
+  user_id: 0
 }
 
 const LostPetComment = (state = initialState, action) => {

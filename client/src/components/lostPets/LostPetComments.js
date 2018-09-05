@@ -13,6 +13,7 @@ class LostPetComments extends Component {
   handleChange = event => {
     const {name, value} = event.target;
     const currentLostPetComment = Object.assign({}, this.props.lostPetComment, {
+      user_id: this.props.userId,
       [name]: value,
       lost_pet_id: this.props.petId
     })
@@ -45,7 +46,8 @@ class LostPetComments extends Component {
 const mapStateToProps = state => {
   return{
     lostPetComment: state.lostPetComment,
-    lostPetComments: state.lostPetComments
+    lostPetComments: state.lostPetComments,
+    userId: state.userAuthentication.id
   }
 }
 
