@@ -27,6 +27,7 @@ class LogIn extends Component {
     return(
       <div>
         Login Form
+        {this.props.message ? <p>{this.props.message}</p> : null}
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="username">Username: </label>
           <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
@@ -41,4 +42,10 @@ class LogIn extends Component {
   }
 }
 
-export default connect(null, {userLogin})(LogIn);
+const mapStateToProps = state => {
+  return ({
+    message: state.userAuthentication.message
+  })
+}
+
+export default connect(mapStateToProps, {userLogin})(LogIn);
