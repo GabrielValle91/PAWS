@@ -3,3 +3,28 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.AboutHeader {
+  font-size: 3em;
+  text-align: center;
+}
+
+.AboutContent {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.aboutPage {
+  margin: 5px;
+}
+
+.homePage {
+  background-image: url("https://7gigzxopz0uiqxo1-zippykid.netdna-ssl.com/wp-content/uploads/2014/02/Flickr_-_ggallice_-_Street_dogs_1.jpg");
+  height: 100vw;
+  background-repeat: no-repeat;
+}
+
+.homePageHeader {
+  text-align: center;
+  font-size: 5em;
+}

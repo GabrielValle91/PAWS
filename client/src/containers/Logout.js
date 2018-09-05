@@ -19,10 +19,4 @@ class Logout extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return ({
-    userDetails: state.userAuthentication
-  })
-}
-
-export default connect(mapStateToProps, {clearUserDetails})(Logout);
+export default connect(null, {clearUserDetails})(Logout);

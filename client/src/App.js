@@ -10,6 +10,8 @@ import LogIn from './containers/LogIn';
 import SignUp from './containers/SignUp';
 import Logout from './containers/Logout';
 import { connect } from 'react-redux';
+import Home from './containers/Home';
+import About from './containers/About';
 
 class App extends Component {
   render() {
@@ -17,6 +19,7 @@ class App extends Component {
       <Router>
         <React.Fragment>
           <NavBar />
+          <Route exact path="/" component={Home} />
           <Route exact path="/login" render={()=> (this.props.userDetails.id ? <Redirect to="/"/> : <LogIn/>)} />
           <Route exact path="/signup" render={()=> (this.props.userDetails.id ? <Redirect to="/"/> : <SignUp/>)} />
           <Route exact path="/logout" render={()=> (this.props.userDetails.id ? <Logout/> : <Redirect to="/login"/>)} />
@@ -24,7 +27,7 @@ class App extends Component {
           <Route exact path="/foundpetsnew" render={() => (this.props.userDetails.id ? <FoundPetInput/> : <Redirect to="/login" />)} />
           <Route exact path="/lostpets" render={() => (this.props.userDetails.id ? <LostPetContainer/> : <Redirect to="/login" />)} />
           <Route exact path="/lostpetsnew" render={() => (this.props.userDetails.id ? <LostPetInput/> : <Redirect to="/login" />)} />
-          
+          <Route exact path="/about" component={About} />
         </React.Fragment>
       </Router>
     );
