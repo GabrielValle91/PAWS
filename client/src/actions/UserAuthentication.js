@@ -5,6 +5,12 @@ const setUserDetails = userDetails => {
   }
 }
 
+export const clearUserDetails = () => {
+  return {
+    type: 'CLEAR_USER_DETAILS'
+  }
+}
+
 export const userLogin = (userDetails) => {
   return dispatch => {
     return fetch('http://localhost:3001/login', {
