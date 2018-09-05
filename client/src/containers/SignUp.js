@@ -27,7 +27,7 @@ class SignUp extends Component {
   render(){
     return(
       <div>
-        Login Form
+        Signup Form
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="username">Username: </label>
           <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />

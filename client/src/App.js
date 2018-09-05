@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import FoundPetContainer from './containers/FoundPetContainer';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import FoundPetInput from './components/foundPets/FoundPetInput';
 import LostPetContainer from './containers/LostPetContainer';
 import LostPetInput from './components/lostPets/LostPetInput';
 import NavBar from './containers/NavBar';
 import LogIn from './containers/LogIn';
 import SignUp from './containers/SignUp';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
@@ -15,16 +16,24 @@ class App extends Component {
       <Router>
         <React.Fragment>
           <NavBar />
-          <Route exact path="/foundpets" component={FoundPetContainer} />
-          <Route exact path="/foundpetsnew" component={FoundPetInput} />
-          <Route exact path="/lostpets" component={LostPetContainer} />
-          <Route exact path="/lostpetsnew" component={LostPetInput} />
-          <Route exact path="/login" component={LogIn} />
-          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/login" render={()=> (this.props.userDetails.id ? <Redirect to="/"/> : <LogIn/>)} />
+          <Route exact path="/signup" render={()=> (this.props.userDetails.id ? <Redirect to="/"/> : <SignUp/>)} />
+
+          <Route exact path="/foundpets"  render={() => (this.props.userDetails.id ? <FoundPetContainer/> : <Redirect to="/login" />)} />
+          <Route exact path="/foundpetsnew" render={() => (this.props.userDetails.id ? <FoundPetInput/> : <Redirect to="/login" />)} />
+          <Route exact path="/lostpets" render={() => (this.props.userDetails.id ? <LostPetContainer/> : <Redirect to="/login" />)} />
+          <Route exact path="/lostpetsnew" render={() => (this.props.userDetails.id ? <LostPetInput/> : <Redirect to="/login" />)} />
+          
         </React.Fragment>
       </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return({
+    userDetails: state.userAuthentication
+  })
+}
+
+export default connect(mapStateToProps)(App);

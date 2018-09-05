@@ -15,10 +15,7 @@ export const userLogin = (userDetails) => {
       body: JSON.stringify({userDetails})
     })
     .then(response => response.json())
-    .then(userDetails => {
-      console.log(userDetails)
-      dispatch(setUserDetails(userDetails))
-    })
+    .then(userDetails => dispatch(setUserDetails(userDetails)))
   }
 }
 
@@ -32,9 +29,6 @@ export const userSignup = (userDetails) => {
       body: JSON.stringify({userDetails})
     })
     .then(response => response.json())
-    .then(userDetails => {
-      console.log(userDetails)
-      dispatch(setUserDetails(userDetails))
-    })
+    .then(userDetails => dispatch(setUserDetails(userDetails)))
   }
 }

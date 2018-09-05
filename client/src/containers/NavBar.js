@@ -29,6 +29,18 @@ const NavBar = () => {
         to="/about"
         exact
       >About Us</NavLink>
+      <NavLink
+        to="/login"
+        exact
+      >Login</NavLink>
+      <NavLink
+        to="/logout"
+        exact
+      >Logout</NavLink>
+      <NavLink
+        to="/signup"
+        exact
+      >Signup</NavLink>
     </Navbar>
   );
 };
