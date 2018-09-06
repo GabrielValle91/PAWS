@@ -19,9 +19,16 @@ body {
 }
 
 .homePage {
-  background-image: url("https://7gigzxopz0uiqxo1-zippykid.netdna-ssl.com/wp-content/uploads/2014/02/Flickr_-_ggallice_-_Street_dogs_1.jpg");
+  /* background-image: url("https://7gigzxopz0uiqxo1-zippykid.netdna-ssl.com/wp-content/uploads/2014/02/Flickr_-_ggallice_-_Street_dogs_1.jpg");
   height: 100vw;
-  background-repeat: no-repeat;
+  align-content: center;
+  background-repeat: no-repeat; */
+  background: url(https://7gigzxopz0uiqxo1-zippykid.netdna-ssl.com/wp-content/uploads/2014/02/Flickr_-_ggallice_-_Street_dogs_1.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 100vw;
+  background-size: cover;
 }
 
 .homePageHeader {
