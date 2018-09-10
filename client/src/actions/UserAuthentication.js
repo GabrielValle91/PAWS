@@ -1,3 +1,6 @@
+// let apiUrl = "http://localhost:3001/"
+let apiUrl = "https://pure-reaches-84133.herokuapp.com/"
+
 const setUserDetails = userDetails => {
   return {
     type: 'SET_USER_DETAILS',
@@ -13,7 +16,7 @@ export const clearUserDetails = () => {
 
 export const userLogin = (userDetails) => {
   return dispatch => {
-    return fetch('http://localhost:3001/login', {
+    return fetch(`${apiUrl}login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -27,7 +30,7 @@ export const userLogin = (userDetails) => {
 
 export const userSignup = (userDetails) => {
   return dispatch => {
-    return fetch('http://localhost:3001/signup', {
+    return fetch(`${apiUrl}signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

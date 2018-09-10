@@ -1,5 +1,8 @@
 import { resetLostPetForm } from './LostPetForm'
 
+let apiUrl = "https://pure-reaches-84133.herokuapp.com/"
+// let apiUrl = "http://localhost:3001/api/"
+
 const setLostPets = lostPets => {
   return {
     type: 'GET_LOST_PETS',
@@ -43,7 +46,7 @@ const resetLostPetComment = () => {
 
 export const getLostPets = () => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/lost_pets')
+    return fetch(`${apiUrl}lost_pets`)
     .then(response => response.json())
     .then(lostPets => {dispatch(setLostPets(lostPets))})
   }
@@ -51,7 +54,7 @@ export const getLostPets = () => {
 
 export const getLostPetComments = (petId) => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/lost_pets/" + petId)
+    return fetch(`${apiUrl}lost_pets/${petId}` )
     .then(response => response.json())
     .then(lostPet => dispatch(setLostPetComments(lostPet.lost_pet_comments)))
   }
@@ -59,7 +62,7 @@ export const getLostPetComments = (petId) => {
 
 export const createLostPet = lostPet => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/lost_pets', {
+    return fetch(`${apiUrl}lost_pets`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -77,7 +80,7 @@ export const createLostPet = lostPet => {
 
 export const createLostPetComment = lostPetComment => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/lost_pet_comments', {
+    return fetch(`${apiUrl}lost_pet_comments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

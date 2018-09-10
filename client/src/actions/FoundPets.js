@@ -1,5 +1,8 @@
 import { resetFoundPetForm } from './FoundPetForm';
 
+let apiUrl = "https://pure-reaches-84133.herokuapp.com/"
+// let apiUrl = "http://localhost:3001/api/"
+
 //Action Creators
 const setFoundPets = foundPets => {
   return {
@@ -45,7 +48,7 @@ const resetFoundPetComment = () => {
 // Async Actions
 export const getFoundPets = () => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/found_pets')
+    return fetch(`${apiUrl}found_pets`)
     .then(response => response.json())
     .then(foundPets => dispatch(setFoundPets(foundPets)))
   }
@@ -53,7 +56,7 @@ export const getFoundPets = () => {
 
 export const getFoundPetComments = (petId) => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/found_pets/" + petId)
+    return fetch(`${apiUrl}found_pets/${petId}`)
     .then(response => response.json())
     .then(foundPet => dispatch(setFoundPetComments(foundPet.found_pet_comments)))
   }
@@ -61,7 +64,7 @@ export const getFoundPetComments = (petId) => {
 
 export const createFoundPet = foundPet => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/found_pets', {
+    return fetch(`${apiUrl}found_pets`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -79,7 +82,7 @@ export const createFoundPet = foundPet => {
 
 export const createFoundPetComment = foundPetComment => {
   return dispatch => {
-    return fetch('http://localhost:3001/api/found_pet_comments', {
+    return fetch(`${apiUrl}found_pet_comments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
