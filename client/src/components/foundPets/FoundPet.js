@@ -6,8 +6,15 @@ class FoundPet extends Component {
   constructor () {
     super();
     this.state = {
-      isActive: false
+      isActive: false,
+      likes: 0
     }
+  }
+
+  handleButtonClick = () => {
+    this.setState({
+      likes: ++this.state.likes
+    })
   }
   
   handleClick = () => {
@@ -27,6 +34,7 @@ class FoundPet extends Component {
           <p className={this.state.isActive ? "FoundPetDetailContent" : "FoundPetCardContent"}>Location: {foundPet.city}, {foundPet.state}</p>
           {this.state.isActive && <p className="FoundPetDetailContent">{foundPet.area}</p>}
         </div>
+        <button onClick={this.handleButtonClick}>Likes: {this.state.likes}</button>
         {this.state.isActive && <div className="FoundPetCommentCard">
           <FoundPetComments petId={foundPet.id}/>
         </div>}
