@@ -1,1 +1,2 @@
-web: bundle exec rails server -p $PORT
+web: cd client && PORT=$PORT npm start
+api: PORT=$PORT && bundle exec rails s
