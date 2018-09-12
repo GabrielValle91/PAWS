@@ -18,7 +18,7 @@ const About = () => {
           <li><a href="http://www.humanesociety.org/animals/resources/tips/what_to_do_lost_pets.html" target="_blank">What to do if you've lost your pet</a></li>
           <li><a href="https://www.americanhumane.org/fact-sheet/if-you-find-a-lost-pet/" target="_blank">What to do if you've found a stray</a></li>
           <li><a href="http://www.humanesociety.org/animals/resources/tips/what_to_do_stray_pet.html" target="_blank">How to help a stray</a></li>
-
+          <li>new li</li>
         </ul>
       </div>
     </div>
